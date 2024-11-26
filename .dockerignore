@@ -1,0 +1,18 @@
+# Exclude Go build artifacts
+/bin/
+/obj/
+
+# Exclude vendor and module cache
+/vendor/
+pkg/
+
+# Exclude IDE files
+.idea/
+.vscode/
+
+# Exclude temporary files
+*.log
+*.tmp
+
+# Exclude the .git directory
+.git/
