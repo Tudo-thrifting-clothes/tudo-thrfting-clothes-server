@@ -1,0 +1,29 @@
+# Go build artifacts
+/bin/
+/.obj/
+
+# Go module cache
+/pkg/
+
+# Go dependency management files
+/vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files (e.g., VS Code, GoLand, etc.)
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# If using the 'gin' binary tool for hot-reloading, exclude it
+gin
+
+# Exclude the Go binary if built for production deployment
+my-gin-project
