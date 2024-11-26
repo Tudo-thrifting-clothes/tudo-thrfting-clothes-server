@@ -1,18 +1,13 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"tudo-thrifting-server/routers"
+)
 
 func main() {
-	// Initialize a Gin router
-	r := gin.Default()
+	// Set up the router
+	r := routers.SetupRouter()
 
-	// Define a simple GET endpoint
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello, World!",
-		})
-	})
-
-	// Start the server on port 8080
+	// Run the Gin server on port 8080
 	r.Run(":8080")
 }

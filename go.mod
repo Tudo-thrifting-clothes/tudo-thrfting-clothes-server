@@ -1,4 +1,4 @@
-module my-gin-project
+module tudo-thrifting-server
 
 go 1.22.1
 
