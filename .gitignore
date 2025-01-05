@@ -27,3 +27,5 @@ gin
 
 # Exclude the Go binary if built for production deployment
 my-gin-project
+
+/config/production.yaml

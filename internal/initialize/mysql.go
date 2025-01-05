@@ -53,6 +53,10 @@ func SetPool() {
 func migrateTables() {
 	err := global.Mdb.AutoMigrate(
 		&po.User{},
+		&po.Brand{},
+		&po.Category{},
+		&po.Product{},
+		&po.Order{},
 	)
 
 	if err != nil {

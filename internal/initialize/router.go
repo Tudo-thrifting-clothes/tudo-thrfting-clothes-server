@@ -21,21 +21,15 @@ func InitRouter() *gin.Engine {
 	// r.Use()  //logging
 	// r.Use() // cors
 	// r.Use() // limit global request
-
-	manageRouter := routers.RouterGroupApp.Manage
-	userRouter := routers.RouterGroupApp.User
+	userRouter := routers.RouterGroupApp.UserRouter
 
 	mainGroup := r.Group("/v1")
 	{
-		mainGroup.GET("/check_status")
-	}
-	{
-		manageRouter.InitAdminRouter(mainGroup)
-		manageRouter.InitUserRouter(mainGroup)
+		mainGroup.GET("/ping")
 	}
 	{
 		userRouter.InitUserRouter(mainGroup)
-		userRouter.InitProductRouter(mainGroup)
 	}
+
 	return r
 }
