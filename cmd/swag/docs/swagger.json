@@ -1,0 +1,190 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server celler server.",
+        "title": "API Documentation Tudo Thrifting Clothes Server",
+        "termsOfService": "tudo-thrfting-clothes-server",
+        "contact": {
+            "name": "TEAM TIPSGO",
+            "url": "tudo-thrfting-clothes-server",
+            "email": "baohc110902@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/v1",
+    "paths": {
+        "/product": {
+            "get": {
+                "description": "Get list of products",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get list of products",
+                "responses": {
+                    "200": {
+                        "description": "List of products",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Products"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Add a product to the inventory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Add a new product",
+                "parameters": [
+                    {
+                        "description": "Product Data",
+                        "name": "product",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created Product",
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateProduct"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/brand": {
+            "post": {
+                "description": "Add a product brand to the inventory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Add a new product brand",
+                "parameters": [
+                    {
+                        "description": "Product brand Data",
+                        "name": "brand",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateProductBrand"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created Product brand",
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateProductBrand"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.CreateProduct": {
+            "type": "object",
+            "required": [
+                "description",
+                "name",
+                "price",
+                "stock"
+            ],
+            "properties": {
+                "brand_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "category_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "description": {
+                    "type": "string",
+                    "example": "product description"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "product name"
+                },
+                "price": {
+                    "type": "integer",
+                    "example": 100000
+                },
+                "stock": {
+                    "type": "integer",
+                    "example": 100
+                }
+            }
+        },
+        "model.CreateProductBrand": {
+            "type": "object",
+            "required": [
+                "brand_name"
+            ],
+            "properties": {
+                "brand_name": {
+                    "type": "string",
+                    "example": "brand name"
+                },
+                "brand_note": {
+                    "type": "string",
+                    "example": "brand note"
+                }
+            }
+        },
+        "model.Products": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

@@ -1,20 +1,18 @@
 package initialize
 
-import (
-	"tudo-thrfting-clothes-server/global"
+import "github.com/gin-gonic/gin"
 
-	"go.uber.org/zap"
-)
-
-func Run() {
+func Run() *gin.Engine {
 	// Initialize the configuration
 	InitConfig()
+	// Initialize the logger
 	InitLogger()
-	global.Logger.Info("Logger initialized", zap.String("log level", "sucess"))
+	// Initialize the database
 	InitMySQL()
+	// Initialize the Redis client
 	InitRedis()
 
 	r := InitRouter()
 
-	r.Run(":8080")
+	return r
 }

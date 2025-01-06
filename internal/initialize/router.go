@@ -26,11 +26,15 @@ func InitRouter() *gin.Engine {
 
 	mainGroup := r.Group("/v1")
 	{
-		mainGroup.GET("/ping")
+		mainGroup.GET("/ping", func(ctx *gin.Context) {
+			ctx.JSON(200, gin.H{
+				"message": "pong",
+			})
+		})
 	}
 	{
 		userRouter.InitUserRouter(mainGroup)
-		productRouter.InitUserRouter(mainGroup)
+		productRouter.InitProductRouter(mainGroup)
 	}
 
 	return r

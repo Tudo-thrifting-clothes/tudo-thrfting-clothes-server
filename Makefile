@@ -6,3 +6,6 @@ run:
 
 up: 
 	docker-compose up -d
+
+swagger:
+	swag init -g ./cmd/server/main.go -o ./cmd/swag/docs

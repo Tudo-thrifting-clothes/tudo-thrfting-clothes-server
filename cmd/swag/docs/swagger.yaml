@@ -1,0 +1,129 @@
+basePath: /v1
+definitions:
+  model.CreateProduct:
+    properties:
+      brand_id:
+        example: 1
+        type: integer
+      category_id:
+        example: 1
+        type: integer
+      description:
+        example: product description
+        type: string
+      name:
+        example: product name
+        type: string
+      price:
+        example: 100000
+        type: integer
+      stock:
+        example: 100
+        type: integer
+    required:
+    - description
+    - name
+    - price
+    - stock
+    type: object
+  model.CreateProductBrand:
+    properties:
+      brand_name:
+        example: brand name
+        type: string
+      brand_note:
+        example: brand note
+        type: string
+    required:
+    - brand_name
+    type: object
+  model.Products:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: integer
+      slug:
+        type: string
+      stock:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: baohc110902@gmail.com
+    name: TEAM TIPSGO
+    url: tudo-thrfting-clothes-server
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: tudo-thrfting-clothes-server
+  title: API Documentation Tudo Thrifting Clothes Server
+  version: 1.0.0
+paths:
+  /product:
+    get:
+      consumes:
+      - application/json
+      description: Get list of products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of products
+          schema:
+            items:
+              $ref: '#/definitions/model.Products'
+            type: array
+      summary: Get list of products
+      tags:
+      - Product
+    post:
+      consumes:
+      - application/json
+      description: Add a product to the inventory
+      parameters:
+      - description: Product Data
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateProduct'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created Product
+          schema:
+            $ref: '#/definitions/model.CreateProduct'
+      summary: Add a new product
+      tags:
+      - Product
+  /product/brand:
+    post:
+      consumes:
+      - application/json
+      description: Add a product brand to the inventory
+      parameters:
+      - description: Product brand Data
+        in: body
+        name: brand
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateProductBrand'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created Product brand
+          schema:
+            $ref: '#/definitions/model.CreateProductBrand'
+      summary: Add a new product brand
+      tags:
+      - Product
+swagger: "2.0"

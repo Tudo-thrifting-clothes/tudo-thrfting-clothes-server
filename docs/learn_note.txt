@@ -1,6 +1,0 @@
-// Need learn
-1. Struct and pointer in Go ?
-
-// HTTP gin
-1. func is export when Uppercase frist letter
-

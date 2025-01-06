@@ -8,7 +8,7 @@ import (
 
 type ProductRoute struct{}
 
-func (ur *ProductRoute) InitUserRouter(Router *gin.RouterGroup) {
+func (ur *ProductRoute) InitProductRouter(Router *gin.RouterGroup) {
 
 	pc := controller.NewProductController()
 
@@ -23,5 +23,8 @@ func (ur *ProductRoute) InitUserRouter(Router *gin.RouterGroup) {
 	// userRouterPrivate.Use(PermissionMiddleware())
 	{
 		userRouterPrivate.POST("/", pc.CreateProduct)
+		userRouterPrivate.POST("/brand", pc.CreateProductBrand)
+		userRouterPrivate.POST("/category", pc.CreateProduct)
+
 	}
 }
