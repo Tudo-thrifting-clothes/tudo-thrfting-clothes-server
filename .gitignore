@@ -2,8 +2,6 @@
 /bin/
 /.obj/
 
-# Go module cache
-/pkg/
 
 # Go dependency management files
 /vendor/
@@ -29,3 +27,5 @@ gin
 my-gin-project
 
 /config/production.yaml
+
+/storage

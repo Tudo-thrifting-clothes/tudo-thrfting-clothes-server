@@ -10,18 +10,18 @@ type ProductRoute struct{}
 
 func (ur *ProductRoute) InitUserRouter(Router *gin.RouterGroup) {
 
-	uc := controller.NewProductController()
+	pc := controller.NewProductController()
 
-	userRouterPublic := Router.Group("/user")
+	productPublicRoute := Router.Group("/product")
 	{
-		userRouterPublic.GET("/", uc.GetListuser)
+		productPublicRoute.GET("/", pc.GetListProduct)
 	}
 
-	userRouterPrivate := Router.Group("/user")
+	userRouterPrivate := Router.Group("/product")
 	// userRouterPrivate.Use(LimitMiddleware())
 	// userRouterPrivate.Use(AuthMiddleware())
 	// userRouterPrivate.Use(PermissionMiddleware())
 	{
-		userRouterPrivate.GET("/get_info")
+		userRouterPrivate.POST("/", pc.CreateProduct)
 	}
 }

@@ -22,6 +22,7 @@ func InitRouter() *gin.Engine {
 	// r.Use() // cors
 	// r.Use() // limit global request
 	userRouter := routers.RouterGroupApp.UserRouter
+	productRouter := routers.RouterGroupApp.ProductRoute
 
 	mainGroup := r.Group("/v1")
 	{
@@ -29,6 +30,7 @@ func InitRouter() *gin.Engine {
 	}
 	{
 		userRouter.InitUserRouter(mainGroup)
+		productRouter.InitUserRouter(mainGroup)
 	}
 
 	return r

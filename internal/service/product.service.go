@@ -1,17 +1,25 @@
 package service
 
-import "tudo-thrfting-clothes-server/internal/repo"
+import (
+	"tudo-thrfting-clothes-server/internal/model"
+	"tudo-thrfting-clothes-server/internal/po"
+	"tudo-thrfting-clothes-server/internal/repo"
+)
 
 type ProductService struct {
-	userRepo *repo.UserRepo
+	productRepo *repo.ProductRepo
 }
 
 func NewProductService() *ProductService {
 	return &ProductService{
-		userRepo: repo.NewUserRep(),
+		productRepo: repo.NewProductRepo(),
 	}
 }
 
-func (us *ProductService) GetListUser() string {
-	return us.userRepo.GetListUser()
+func (ps *ProductService) GetListProduct() ([]po.Product, error) {
+	return ps.productRepo.GetListProduct()
+}
+
+func (ps *ProductService) CreateProduct(product model.CreateProduct) (po.Product, error) {
+	return ps.productRepo.CreateProduct(product)
 }
