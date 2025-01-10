@@ -17,11 +17,11 @@ func (ur *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
 		userRouterPublic.GET("/", uc.GetListuser)
 	}
 
-	userRouterPrivate := Router.Group("/user")
-	// userRouterPrivate.Use(LimitMiddleware())
-	// userRouterPrivate.Use(AuthMiddleware())
-	// userRouterPrivate.Use(PermissionMiddleware())
-	{
-		userRouterPrivate.GET("/get_info")
-	}
+	// userRouterPrivate := Router.Group("/user")
+	// // userRouterPrivate.Use(LimitMiddleware())
+	// // userRouterPrivate.Use(AuthMiddleware())
+	// // userRouterPrivate.Use(PermissionMiddleware())
+	// {
+	// 	userRouterPrivate.GET("/get_info")
+	// }
 }

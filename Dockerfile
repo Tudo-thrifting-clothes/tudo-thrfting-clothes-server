@@ -6,12 +6,12 @@ COPY . .
 
 RUN go mod download
 
-RUN go build -o tudo-thrifting-server ./cmd/server
+RUN go build -o crm.shopdev.com ./cmd/server
 
 FROM scratch
 
 COPY ./config /config
 
-COPY --from=builder /build/tudo-thrifting-server /
+COPY --from=builder /build/crm.shopdev.com /
 
-CMD ["/tudo-thrifting-server", "config/production.yaml"]
+ENTRYPOINT [ "/crm.shopdev.com", "config/local.yaml" ]

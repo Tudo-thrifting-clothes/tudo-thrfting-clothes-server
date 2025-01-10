@@ -11,7 +11,7 @@ func InitConfig() {
 	// Initialize viper
 	viper := viper.New()
 	viper.AddConfigPath("./config")
-	viper.SetConfigName("development")
+	viper.SetConfigName("production") // development || production
 	viper.SetConfigType("yaml")
 
 	// // Read the configuration file

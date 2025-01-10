@@ -45,7 +45,7 @@ func SetPool() {
 	if err != nil {
 		fmt.Printf("Failed to set pool %s", err)
 	}
-	sqlDb.SetMaxIdleConns(m.MaxIdleConns)
+	sqlDb.SetConnMaxIdleTime(time.Duration(m.MaxIdleConns))
 	sqlDb.SetMaxOpenConns(m.MaxOpenCons)
 	sqlDb.SetConnMaxLifetime(time.Duration(m.ConnMaxTime))
 }

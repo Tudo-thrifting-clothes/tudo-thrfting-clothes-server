@@ -1,8 +1,19 @@
-version: '3.8'
+version: '3'
 
 services:
-  gin-app:
-    build: .
+  # Nest JS app
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tudo-thrfting-clothes-server:1.0.0 # Image name
     ports:
-      - "8080:8080"
+      - '8080:8080'
+    volumes:
+      - ./storage:/app/dist/storage
+      - ./config:/app/dist/config
     restart: always
+
+volumes:
+  storage:
+  config:
